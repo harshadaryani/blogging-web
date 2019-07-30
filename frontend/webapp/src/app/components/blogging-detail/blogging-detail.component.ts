@@ -36,4 +36,8 @@ export class BloggingDetailComponent implements OnInit {
     });
   }
 
+  viewBlogList() {
+    this.router.navigate(['blogging-list']);
+  }
+
 }

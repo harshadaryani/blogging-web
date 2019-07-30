@@ -14,7 +14,7 @@ export class UrlConstantsService {
 
   public readonly URL_SEPARATOR = '/';
 
-  //public readonly USERS_URL = 'users';
+  public readonly LOGIN_URL = 'token/generate-token';
 
   public readonly POSTS_URL = 'posts';
 
