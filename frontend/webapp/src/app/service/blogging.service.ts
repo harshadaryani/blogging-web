@@ -34,4 +34,9 @@ export class BloggingService {
     return this.httpService.put(this.url+ this.urlConstantsService.URL_SEPARATOR +
       this.urlConstantsService.POSTS_URL + this.urlConstantsService.URL_SEPARATOR + id, body);
   }
+
+  delete(id) : Observable < any > {
+    return this.httpService.delete(this.url + this.urlConstantsService.URL_SEPARATOR +
+      this.urlConstantsService.POSTS_URL + this.urlConstantsService.URL_SEPARATOR + id);
+  }
 }

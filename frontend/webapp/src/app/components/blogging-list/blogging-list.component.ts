@@ -47,4 +47,17 @@ export class BloggingListComponent implements OnInit {
     }
   }
 
+  deleteBlog(id) {
+    this.bloggingService.delete(id).subscribe(
+      response => {
+        this.blog = response;
+        console.log(response);
+        this.ngOnInit();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
 }
