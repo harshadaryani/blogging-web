@@ -1,0 +1,42 @@
+<div class="container">
+  <br />
+  <div>
+    <h2> Blogging List </h2>
+  </div>
+
+  <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+  <br />
+  <div>
+    <button (click)="upsertBlog()" class="btn btn-success">Add</button>
+  </div>
+  <br />
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Keywords</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--   for (Todo todo: todos) {  -->
+      <tr *ngFor="let data of blog">
+        <td>{{data.title}}</td>
+        <td>{{data.category}}</td>
+        <td>{{data.author}}</td>
+        <td>{{data.keywords}}</td>
+        <td>
+          <button (click)="viewBlog(data.id)" class="m-15 btn btn-success">View</button>
+          <button (click)="upsertBlog(data.id)" class="m-15 btn btn-success">Update</button>
+          <button (click)="deleteBlog(data.id)" class="m-15 btn btn-warning">Delete</button>
+        </td>
+      </tr>
+      <!-- } -->
+    </tbody>
+
+  </table>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <h2> Blogging Detail </h2>
+  <br/>
+  <div class="card" style="width:800px" *ngIf="blog">
+    <div class="card-body">
+      <h4 class="card-title" [textContent]="blog.title"></h4>
+      Author: <span class="card-text" [textContent]="blog.author"> </span>
+      <br/>
+      Category: <span class="card-text" [textContent]="blog.category"></span>
+      <br/>
+      <br/>
+      <span [textContent]="blog.content"></span>
+      <br/>
+      <br/>
+
+      Keywords: <span [textContent]="blog.keywords"></span>
+
+    </div>
+  </div>
+</div>
