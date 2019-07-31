@@ -12,6 +12,7 @@ export class BloggingListComponent implements OnInit {
 
   //sub = {};
   blog: UserDetailDto;
+  error: string;
 
   constructor(private router: Router, private bloggingService: BloggingService) { }
 
@@ -23,6 +24,10 @@ export class BloggingListComponent implements OnInit {
         console.log(response);
       },
       err => {
+        this.error = err.error.error;
+        if(err.status == '401') {
+          this.router.navigate(['login']);
+        }
         console.log(err);
       }
     );
@@ -56,6 +61,10 @@ export class BloggingListComponent implements OnInit {
       },
       err => {
         console.log(err);
+        this.error = err.error.error;
+        if(err.status == '401') {
+          this.router.navigate(['login']);
+        }
       }
     );
   }

@@ -10,6 +10,8 @@ import { BloggingService } from 'src/app/service/blogging.service';
 })
 export class BloggingAddComponent implements OnInit {
 
+  error: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router, 
@@ -34,6 +36,12 @@ export class BloggingAddComponent implements OnInit {
       this.bloggingService.post(this.addForm.value)
       .subscribe( data => {
         this.router.navigate(["blogging-list"]);
+      },
+      err => {
+        this.error = err.error.error;
+        if(err.status == '401') {
+          this.router.navigate(['login']);
+        }
       })
   }
 

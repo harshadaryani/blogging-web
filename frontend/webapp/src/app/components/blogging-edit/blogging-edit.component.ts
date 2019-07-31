@@ -11,6 +11,7 @@ import { BloggingService } from 'src/app/service/blogging.service';
 export class BloggingEditComponent implements OnInit {
 
   blogId: string;
+  error: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,6 +43,12 @@ export class BloggingEditComponent implements OnInit {
     this.bloggingService.getById(this.blogId)
     .subscribe( response => {
       this.editForm.setValue(response);
+    },
+    err => {
+      this.error = err.error.error;
+        if(err.status == '401') {
+          this.router.navigate(['login']);
+        }
     })
   }
 
@@ -49,7 +56,17 @@ export class BloggingEditComponent implements OnInit {
       this.bloggingService.put(this.blogId, this.editForm.value)
       .subscribe( data => {
         this.router.navigate(["blogging-list"]);
+      },
+      err => {
+        this.error = err.error.error;
+        if(err.status == '401') {
+          this.router.navigate(['login']);
+        }
       })
+  }
+
+  cancel() {
+    this.router.navigate(['blogging-list']);
   }
 
 }

@@ -11,6 +11,7 @@ import { UserDetailDto } from 'src/app/models/user-detail-dto';
 export class BloggingDetailComponent implements OnInit {
   blogId: string;
   blog: UserDetailDto;
+  error: string;
 
   constructor( 
     private activatedRoute: ActivatedRoute,
@@ -33,6 +34,10 @@ export class BloggingDetailComponent implements OnInit {
     },
     err => {
       console.log(err);
+      this.error = err.error.error;
+        if(err.status == '401') {
+          this.router.navigate(['login']);
+        }
     });
   }
 

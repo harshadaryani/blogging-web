@@ -1,9 +1,14 @@
 <div class="container">
-
     <div class="row">
-        <br/>
+        <br />
         <div class="col-md-6 login-container">
-            <h2 >Login </h2>
+            <h2>Login </h2>
+            <br />
+
+            <div class="alert alert-danger" *ngIf="error">
+                <span [textContent]="error"></span>
+            </div>
+            
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="username">Username:</label>

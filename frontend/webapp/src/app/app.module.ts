@@ -15,6 +15,7 @@ import { HttpService } from './service/http.service';
 import { BloggingAddComponent } from './components/blogging-add/blogging-add.component';
 import { BloggingEditComponent } from './components/blogging-edit/blogging-edit.component';
 import { InterceptorService } from './interceptor.service';
+import { AppHeaderComponent } from './components/app-header/app-header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InterceptorService } from './interceptor.service';
     ErrorComponent,
     BloggingDetailComponent,
     BloggingAddComponent,
-    BloggingEditComponent
+    BloggingEditComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,

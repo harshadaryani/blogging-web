@@ -4,9 +4,15 @@
     <h2> Blogging Detail </h2>
   </div>
   <br />
+
+  <div class="alert alert-danger" *ngIf="error">
+    <span [textContent]="error"></span>
+  </div>
+
   <div>
-    <button type="button" (click)="viewBlogList()" class="btn btn-info">
-      << Back</button> </div> <br />
+    <button type="button" (click)="viewBlogList()" class="btn btn-info"><< Back</button> 
+  </div> 
+  <br />
 
       <div class="card" style="width:800px" *ngIf="blog">
         <div class="card-body">

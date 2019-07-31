@@ -4,7 +4,9 @@
     <h2> Blogging List </h2>
   </div>
 
-  <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+  <div class="alert alert-danger" *ngIf="error">
+    <span [textContent]="error"></span>
+  </div>
 
   <br />
   <div>

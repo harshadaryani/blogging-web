@@ -12,11 +12,18 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   invalidLogin: boolean = false;
+  error: string;
+  token: string;
+
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     private bloggingService: BloggingService) { }
 
   ngOnInit() {
+    this.token = window.localStorage.getItem('token');
+    if(this.token)
+      this.router.navigate(['blogging-list']);
+      
     window.localStorage.removeItem('token');
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
@@ -40,6 +47,12 @@ export class LoginComponent implements OnInit {
         this.invalidLogin = true;
         alert(data.message);
       }
+    },
+    err => {
+      this.error = err.error.error;
+        if(err.status == '401') {
+          this.router.navigate(['login']);
+        }
     });
   }
 }
